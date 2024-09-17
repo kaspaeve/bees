@@ -1,6 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+/* Load the 'Orbitron' font from Google Fonts */
 
 /*
 
@@ -30,10 +31,13 @@ production stylesheet in assets/built/screen.css using: npm run dev
 @import "ghost/comments.css"; */
 
 /* Custom imports */
-@import "custom-typography.css";
+/* Google Fonts imports */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
 
-
+/* Custom imports */
+@import "custom-typography.css";
 
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
@@ -190,3 +194,199 @@ body.dark {
     @apply !bg-[#011627] dark:!bg-[#272822];
     border-radius: 8px;
 }
+/*add*.*/
+
+
+.site-name {
+    font-weight: bold;
+    font-size: 2.5em; /* Larger size for emphasis */
+    color: rgb(255, 26, 117); /* Vibrant pink color */
+    text-align: center;
+    display: block; /* Use block for better control over spacing */
+    margin: 20px auto; /* Adds vertical spacing and centers horizontally */
+    font-family: 'Orbitron', sans-serif;/* Monospaced, techy font */
+    letter-spacing: 0.1em; /* More spacing between characters for a tech look */
+    text-shadow: 4px 4px 6px rgb(126, 125, 125); /* Darker and more pronounced shadow for better visibility */
+    cursor: pointer; /* Indicates that it's clickable */
+}
+
+.site-name:hover {
+    color: rgb(10, 190, 212); /* Changes to a techy cyan on hover */
+    text-shadow: 0 0 20px rgba(10, 190, 212, 0.8);
+}
+
+/* Add keyframes for a blinking cursor effect */
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+
+.site-name::after {
+    content: '|';
+    animation: blink 1s step-start infinite;
+    font-weight: bold;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .site-name {
+        font-size: 1.5em;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    }
+}
+
+
+.nav-link {
+    font-size: 14px; /* Adjust the size as needed */
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    color: #000; /* Set to your preferred color */
+    text-decoration: none;
+    border-bottom: 2px solid transparent; /* Adds a bottom border */
+}
+
+.nav-link:hover {
+    color: #d00; /* Red color for hover state */
+    border-bottom: 2px solid #d00; /* Adds red bottom border on hover */
+}
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the navigation items */
+    padding: 10px 0; /* Adds some padding to the top and bottom */
+    border-bottom: 1px solid #eee; /* Adds a bottom border for separation */
+}
+
+.nav-item {
+    margin: 0 15px; /* Adds space between each navigation item */
+    position: relative; /* Allows for positioning the underline */
+}
+
+.nav-item::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #d00; /* Red underline color */
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px; /* Positions the underline slightly below the text */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-item:hover::after {
+    width: 100%; /* Expands the underline on hover */
+}
+.nav-item {
+    display: inline-block;
+    position: relative;
+    padding: 0 15px;
+}
+
+.nav-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 20px;
+    background-color: #d00; /* Red color for divider */
+}
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.nav-item {
+    display: inline-block;
+    position: relative;
+    padding: 0 15px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000; /* Default text color */
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-item:hover a {
+    color: #d00; /* Hover text color */
+}
+
+.nav-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 20px;
+    background-color: #d00; 
+}
+
+body.dark-mode .nav-item {
+    color: #fff; 
+}
+
+body.dark-mode .nav-item a {
+    color: #fff;
+}
+
+body.dark-mode .nav-item:not(:last-child)::after {
+    background-color: #fff; 
+}
+.nav-item a:hover {
+    color: #d00;
+}
+.feed {
+    color: #ee00ff; 
+}
+
+.see-all {
+    background-color: transparent;
+    color: #ee00ff; 
+    padding: 5px 10px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: color 0.3s ease; 
+}
+
+.see-all:hover {
+    color: #ff66aa; 
+}
+
+.hr-feed {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(204, 204, 204, 0.75), rgba(0,0,0,0)); /* Stylish gradient edge */
+    margin: 0.5rem 0 2rem;
+}
+.hover-img:hover {
+    box-shadow: 0px 7px 13px rgba(238, 0, 255, 0.2); /* Soft pink glow */
+}
+
+.tag-link, .hover-title {
+    transition: color 0.3s ease, font-weight 0.3s ease; /* Smooth transition for color and font-weight */
+    text-decoration: none; /* Removes underline from the links */
+}
+
+.tag-link:hover, .hover-title:hover {
+    font-weight: bold; /* Makes the text bold on hover */
+    text-decoration: underline;
+
+}
+
+/* Additional styling for when hovering over image links */
+.hover-img:hover .picture {
+    transform: scale(1.05); /* Slight zoom effect on image hover */
+}
+
+
+  
