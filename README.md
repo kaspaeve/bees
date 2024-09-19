@@ -2,7 +2,6 @@
 This is a modified version of the Bee's theme for Ghost CMS.
 
 
-
 ## Theme structure
 
 The main files are:
