@@ -1,5 +1,5 @@
 <div>
-    <a class="block overflow-hidden rounded cursor-pointer hover-img" href="{{url}}">
+    <a class="block overflow-hidden rounded cursor-pointer" href="{{url}}">
         {{> "picture" picture_classes="w-full rounded aspect-[16/9] object-cover cursor-pointer transform hover:scale-105 transition duration-500" }}
     </a>
     <div class="mt-4 flex items-center gap-2 font-bold leading-sm capitalize text-indigo-500 flex-wrap md:flex-nowrap md:line-clamp">
@@ -8,13 +8,14 @@
                 {{#if @index }}
                     <span class="" aria-hidden="true">&bull;</span>
                 {{/if}}
-                <a href="{{url}}" class="tag-link">{{name}}</a>
+                <a href="{{url}}" class="">{{name}}</a>
             {{/foreach }}
         {{/if}}
     </div>
-    <a href="{{ url }}" class="{{#if title_classes }} {{ title_classes }} {{ else }} mt-4 inline-block text-2xl font-bold hover-title {{/if}}" style="letter-spacing: -0.5px;">{{ title }}</a>
+    <a href="{{ url }}" class="{{#if title_classes }} {{ title_classes }} {{ else }} mt-4 inline-block text-2xl font-bold {{/if}}" style="letter-spacing: -0.5px;">{{ title }}</a>
     {{#unless no_excerpt }}
         <p class="text-gray-500 dark:text-gray-400 mt-2 line-clamp-2">{{ excerpt }}</p>
     {{/unless }}
     <p class="mt-4 text-sm text-gray-400 dark:text-gray-500 tracking-tight flex items-center gap-2"> {{date}} <span aria-hidden="true">&bull;</span> {{reading_time minute="1 min" minutes="% mins"}}</p>
 </div>
+
